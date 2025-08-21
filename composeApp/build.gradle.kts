@@ -81,7 +81,7 @@ kotlin {
             }
         }
 
-        // 本地pod库
+        // 本地源码形式pod库
         pod("TestP") {
             // 创建本地Pod库方式参考：https://www.jianshu.com/p/9183cded6b2e
             source = path(rootDir.path + "/TestP")
@@ -93,6 +93,11 @@ kotlin {
             extraOpts += listOf("-compiler-option", "-fmodules")
         }
 
+        // 本地xcframework库(此处我用facebook的xcframework包，通过添加podspec文件后外部包装一层实现)
+        pod("MyLocalXCFramework") {
+            source = path(rootDir.path + "/MyLocalXCFramework")
+            moduleName = "FBAudienceNetwork"// 注：由于我最外层包装的名字与实际facebook的模块名不同，所以这里必须显式写出facebook的模块名称：详见文件MyLocalXCFramework/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework/Modules/module.modulemap
+        }
     }
 
 

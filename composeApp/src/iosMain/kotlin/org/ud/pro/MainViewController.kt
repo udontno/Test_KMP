@@ -7,6 +7,7 @@ import cocoapods.TestP.TestP
 import kotlinx.cinterop.ExperimentalForeignApi
 import platform.Foundation.NSData
 import cocoapods.AFNetworking.AFNetworkActivityIndicatorManager
+import cocoapods.MyLocalXCFramework.FBRewardedVideoAd
 // 指定packageName会指定类生成在哪个包名下
 import org.ud.pro.rs.ReachabilityVersionString
 
@@ -27,6 +28,7 @@ fun MainViewController() = ComposeUIViewController {
         val testP = TestP()
         testP.testp()
 
+        FBRewardedVideoAd().loadAd()
     }
 
     App()
