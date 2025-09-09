@@ -1,0 +1,16 @@
+package = com.example.hevsocks5tunnel
+
+language = Objective-C
+
+# TODO 以下的路径中的...自行更改到放置xcframework的路径，不能使用相对路径，会找不到
+# 头文件
+headers = /.../HevSocks5Tunnel.xcframework/ios-arm64/Headers/hev-socks5-tunnel.h
+
+# 编译时包含目录
+compilerOpts = -I/.../HevSocks5Tunnel.xcframework/ios-arm64/Headers
+
+# 链接静态库
+linkerOpts = -L/.../HevSocks5Tunnel.xcframework/ios-arm64 -lhev-socks5-tunnel
+
+# 限定头文件范围
+headerFilter = /.../HevSocks5Tunnel.xcframework/ios-arm64/Headers/**

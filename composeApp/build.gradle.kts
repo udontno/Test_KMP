@@ -29,6 +29,15 @@ kotlin {
             baseName = "ComposeApp"
             isStatic = true
         }
+
+        iosTarget.compilations.getByName("main") {
+            cinterops {
+                create("hevSocks") {
+                    // 指定 def 文件
+                    definitionFile.set(project.file("src/nativeInterop/cinterop/hevSocks.def"))
+                }
+            }
+        }
     }
     
     jvm()
